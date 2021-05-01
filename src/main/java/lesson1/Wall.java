@@ -1,8 +1,7 @@
 package lesson1;
 
-public class Wall implements Overcomeable {
+public class Wall extends Obstacle{
 
-    private int number;
     private int height;
 
     public Wall(int number, int height) {
@@ -10,18 +9,8 @@ public class Wall implements Overcomeable {
         this.height = height;
     }
 
-    public boolean overcome(Capable capable) {
-
-        if(capable.getHeightRestriction() < height){
-
-            System.out.printf("FAIL: character '%s' could not overcome Wall %s", capable.getName(), this.number);
-            System.out.println();
-            return false;
-
-        }
-        capable.jump();
-        return true;
-
+    public int getHeight() {
+        return height;
     }
 
     @Override

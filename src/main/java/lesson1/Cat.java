@@ -16,34 +16,40 @@ public class Cat implements Capable {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getLengthRestriction() {
         return lengthRestriction;
-    }
-
-    public void setLengthRestriction(int lengthRestriction) {
-        this.lengthRestriction = lengthRestriction;
     }
 
     public int getHeightRestriction() {
         return heightRestriction;
     }
 
-    public void setHeightRestriction(int heightRestriction) {
-        this.heightRestriction = heightRestriction;
+    public boolean run(Treadmill treadmill) {
+
+        if(this.getLengthRestriction() < treadmill.getLength()){
+
+            System.out.printf("FAIL: Cat '%s' couldn't pass treadmill %s", this.name, treadmill.getNumber());
+            System.out.println();
+            return false;
+
+        }
+        System.out.printf("--Cat '%s' passes treadmill %s", this.name, treadmill.getNumber());
+        System.out.println();
+        return true;
     }
 
-    public void run() {
-        System.out.printf("--Cat '%s' runs", this.name);
-        System.out.println();
-    }
+    public boolean jump(Wall wall) {
 
-    public void jump() {
-        System.out.printf("--Cat '%s' jumps", this.name);
+        if(this.getHeightRestriction() < wall.getHeight()){
+
+            System.out.printf("FAIL: Cat '%s' couldn't pass wall %s", this.name, wall.getNumber());
+            System.out.println();
+            return false;
+
+        }
+        System.out.printf("--Cat '%s' passes wall %s", this.name, wall.getNumber());
         System.out.println();
+        return true;
     }
 
     @Override

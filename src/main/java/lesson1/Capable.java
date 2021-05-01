@@ -2,11 +2,7 @@ package lesson1;
 
 public interface Capable {
 
-    void run();
-    void jump();
+    boolean run(Treadmill treadmill);
+    boolean jump(Wall wall);
 
-    int getHeightRestriction();
-    int getLengthRestriction();
-
-    String getName();
 }

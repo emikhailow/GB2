@@ -1,8 +1,7 @@
 package lesson1;
 
-public class Treadmill implements Overcomeable{
+public class Treadmill extends Obstacle{
 
-    private int number;
     private int length;
 
     public Treadmill(int number, int length) {
@@ -10,18 +9,8 @@ public class Treadmill implements Overcomeable{
         this.length = length;
     }
 
-    public boolean overcome(Capable capable) {
-
-        if(capable.getLengthRestriction() < length){
-
-            System.out.printf("FAIL: character '%s' could not overcome Treadmill %s", capable.getName(), this.number);
-            System.out.println();
-            return false;
-
-        }
-        capable.run();
-        return true;
-
+    public int getLength() {
+        return length;
     }
 
     @Override
