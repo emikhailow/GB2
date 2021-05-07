@@ -2,6 +2,8 @@ package Homework2;
 
 public class MyArrayDataException extends Exception{
 
+    public static final String TEXT = "ERROR: Couldn't read number in cell [%d : %d]";
+
     private int i;
     private int j;
 

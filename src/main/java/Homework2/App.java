@@ -51,9 +51,9 @@ public class App {
             sum = getSum(stringArray);
             System.out.printf("Sum of array is %d", sum);
         } catch (MyArraySizeException ex) {
-            System.out.printf("ERROR: Array size (%s) is not equal to %s", ex.getArraySize(), NEEDED_ARRAY_SIZE);
+            System.out.printf(MyArraySizeException.TEXT, ex.getArraySize(), NEEDED_ARRAY_SIZE);
         } catch(MyArrayDataException ex){
-            System.out.printf("ERROR: Couldn't read number in cell [%d : %d]", ex.getI() + 1, ex.getJ() + 1);
+            System.out.printf(MyArrayDataException.TEXT, ex.getI() + 1, ex.getJ() + 1);
         }
 
     }
