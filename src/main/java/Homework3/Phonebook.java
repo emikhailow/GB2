@@ -1,11 +1,10 @@
 package Homework3;
 
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.*;
 
 public class Phonebook {
 
-    private HashMap<String, HashSet<String>> hashMap;
+    private Map<String, HashSet<String>> hashMap;
 
     public Phonebook() {
 
@@ -15,15 +14,15 @@ public class Phonebook {
 
     public void add(String name, String phoneNumber) {
 
-        HashSet<String> hashSet = hashMap.get(name) == null ? new HashSet<>() : hashMap.get(name);
+        HashSet<String> hashSet = hashMap.getOrDefault(name, new HashSet<>());
         hashSet.add(phoneNumber);
         hashMap.put(name, hashSet);
 
     }
 
-    public HashSet<String> get(String name){
+    public Set<String> get(String name){
 
-        return hashMap.get(name);
+        return hashMap.getOrDefault(name, new HashSet<>());
 
     }
 

@@ -1,47 +1,35 @@
 package Homework3;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
+import java.util.*;
 
 public class App {
 
+    private static final int ARRAY_LENGTH = 20;
+
     public static void main(String[] args) {
 
-        ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("Moscow");
-        arrayList.add("Paris");
-        arrayList.add("Moscow");
-        arrayList.add("London");
-        arrayList.add("Moscow");
-        arrayList.add("Paris");
-        arrayList.add("Moscow");
-        arrayList.add("London");
-        arrayList.add("Moscow");
-        arrayList.add("Paris");
-        arrayList.add("Moscow");
-        arrayList.add("London");
-        arrayList.add("Moscow");
-        arrayList.add("Paris");
-        arrayList.add("Moscow");
-        arrayList.add("London");
-        arrayList.add("Moscow");
-        arrayList.add("Paris");
-        arrayList.add("Moscow");
-        arrayList.add("London");
-        arrayList.add("Rome");
-        arrayList.add("Athens");
-        arrayList.add("Glasgow");
-        arrayList.add("Oslo");
+        List<String> uniqueStrings = new ArrayList<>();
+        uniqueStrings.add("Moscow");
+        uniqueStrings.add("Paris");
+        uniqueStrings.add("London");
+        uniqueStrings.add("Rome");
+        uniqueStrings.add("Athens");
 
-        HashMap<String, Integer> hashMap = new HashMap<>();
+        Random random = new Random();
+
+        ArrayList<String> arrayList = new ArrayList<>();
+        for(int i = 0; i < ARRAY_LENGTH; i++){
+            arrayList.add(uniqueStrings.get(random.nextInt(uniqueStrings.size())));
+        }
+        System.out.println("Initial array: " + arrayList);
+
+        Map<String, Integer> hashMap = new HashMap<>();
 
         for (String s : arrayList) {
-            hashMap.put(s, hashMap.get(s) == null ? 1 : hashMap.get(s) + 1);
+            hashMap.put(s, hashMap.getOrDefault(s, 0) + 1);
         }
 
-        System.out.println(hashMap);
+        System.out.println("Occurence: " + hashMap);
 
         System.out.println("==========");
 
@@ -53,6 +41,7 @@ public class App {
 
         System.out.println(phonebook.get("Ivanov"));
         System.out.println(phonebook.get("Petrov"));
+        System.out.println(phonebook.get("Mikhailov"));
 
     }
 
