@@ -27,7 +27,7 @@ public class App{
 
         applyFormulae(arr, 0);
 
-        System.out.printf("No streams: %d", System.currentTimeMillis() - a);
+        System.out.printf("One thread: %d", System.currentTimeMillis() - a);
         System.out.println();
 
     }
@@ -60,7 +60,7 @@ public class App{
         System.arraycopy(arr1, 0, arr, 0, h);
         System.arraycopy(arr2, 0, arr, h, h);
 
-        System.out.printf("Using streams: %d", System.currentTimeMillis() - a);
+        System.out.printf("Two threads: %d", System.currentTimeMillis() - a);
         System.out.println();
 
     }
