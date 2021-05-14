@@ -42,27 +42,29 @@ public class App{
 
         long a = System.currentTimeMillis();
 
-        System.arraycopy(arr, 0, arr1, 0, h);
-        System.arraycopy(arr, h, arr2, 0, h);
-
         Thread thread1 = new Thread(() -> {
+
+            System.arraycopy(arr, 0, arr1, 0, h);
             applyFormulae(arr1, 0);
+            System.arraycopy(arr1, 0, arr, 0, h);
+
         });
 
         Thread thread2 = new Thread(() -> {
+
+            System.arraycopy(arr, h, arr2, 0, h);
             applyFormulae(arr2, h);
+            System.arraycopy(arr2, 0, arr, h, h);
+
         });
+
         thread1.start();
         thread2.start();
         thread1.join();
         thread1.join();
 
-        System.arraycopy(arr1, 0, arr, 0, h);
-        System.arraycopy(arr2, 0, arr, h, h);
-
         System.out.printf("Two threads: %d", System.currentTimeMillis() - a);
         System.out.println();
-
     }
 
     public static void applyFormulae(float[] array, int shift){
