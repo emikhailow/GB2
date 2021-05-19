@@ -18,6 +18,8 @@ public class Client {
             openConnection();
         }catch(IOException e){
             e.printStackTrace();
+        }finally{
+            closeConnection();
         }
 
     }
@@ -78,6 +80,26 @@ public class Client {
             socket = null;
 
         }).start();
+
+    }
+
+    private void closeConnection() {
+
+        try {
+            inputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            outputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            socket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
