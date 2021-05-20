@@ -104,7 +104,9 @@ public class ClientHandler {
                 String messageText = splittedString[2];
                 List<String> nicknamesList = keyword == ChatConstants.PERSONAL_MESSAGE
                         ? new ArrayList<>(){{add(nicknamesListString.trim());}}
-                        : Arrays.asList(nicknamesListString.split("\\s*,\\s*"));
+                        : new ArrayList<>(Arrays.asList(nicknamesListString.split("\\s*,\\s*")));
+                nicknamesList.add(name);
+                nicknamesList.stream().distinct().collect(Collectors.toList());
 
                 server.broadcastMessageToClients(String.format("[%s]: %s", name, messageText), nicknamesList);
 
