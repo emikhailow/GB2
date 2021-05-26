@@ -171,6 +171,11 @@ public class ClientHandler {
                 sendMessage(ChatConstants.CLOSE_CONNECTION);
                 break;
             }
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
         }
 
